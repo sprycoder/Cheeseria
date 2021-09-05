@@ -1,0 +1,22 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: "3.4"
+
+services:
+  cheeseriaclient:
+    image: cheeseriaclient
+    build:
+      context: client
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+
+  cheeseriaapi:
+    image: cheeseriaapi
+    build:
+      context: .
+      dockerfile: server/Cheeseria.API/Dockerfile
+    ports:
+      - 5000:5000
