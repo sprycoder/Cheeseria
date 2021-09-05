@@ -21,8 +21,9 @@ export type CartItemType = {
   weight: number;
 };
 
+// TODO: fetch data through redux
 const getProducts = async (): Promise<CartItemType[]> =>
-  await (await fetch("https://localhost:44301/api/cheese/items")).json();
+  await (await fetch("https://localhost:5001/api/cheese/items")).json();
 
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -34,7 +35,7 @@ const App = () => {
   console.log(data);
 
   const getTotalItems = (items: CartItemType[]) =>
-    items.reduce((ack: number, item) => ack + item.weight, 0);
+    items.reduce((ack: number, item) => ack + 1, 0);
 
   const handleAddToCart = (clickedItem: CartItemType) => {
     setCartItems((prev) => {
