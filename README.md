@@ -25,6 +25,10 @@ docker-compose build
 docker-compose up
 ```
 
+If you want to run it without docker, you can do through command line by
+API - in Cheeseria.API directory run command "dotnet run"
+Client - in Client directory run command "npm start"
+
 Application would be available as below:
 
 Client: http://localhost:3000/ 
